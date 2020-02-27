@@ -4,8 +4,7 @@ using System.Text;
 
 namespace PRSPreTestLibrary.Models
 {
-    public class Vendor
-    {
+    public class Vendor {
         public int Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
@@ -15,6 +14,8 @@ namespace PRSPreTestLibrary.Models
         public string Zip { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+      
+        public virtual List<Product> Products { get; set; }
 
         public Vendor() {
 

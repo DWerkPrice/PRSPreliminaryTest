@@ -20,6 +20,8 @@ namespace PRSPreTestLibrary.Models
 
         public override string ToString() => $"{Id}/{Username}/{Password}/{Firstname}/{Lastname}/{Phone}/{Email}/{IsReviewer}/{IsAdmin}"; //overrides
 
+        public virtual List<Request> Requests { get; set; }
+
         public User() { }  // need a default contstuctor
 
     }
