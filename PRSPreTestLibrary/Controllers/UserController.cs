@@ -13,6 +13,23 @@ namespace PRSPreTestLibrary.Controllers{
 
         private AppDbContext context = new AppDbContext();
 
+        public User Login(string username,string password) {
+            //Returns context.Users
+            return context.Users
+                .SingleOrDefault(u => u.Username == username && u.Password == password); // u is a fred variable standing in for every instance in the collection Users
+                                                                                         //  the lamda syntax above replaces this SQL querey:  Select * from Users u where u.username = "Student" and u.password = "password1";
+                                                                                         // this will be in capstone  this is the SQL 
+                                                                                                         //var user = from u in context.Users
+                                                                                                         //           where u.Username== username && u.Password == password
+                                                                                                         //           select u;
+                                                                                                         //           return user.FirstorDefault();  // without firstordefault() you get just one but method syntax above in lamda has more power
+                                                                                                         //var user = from u in context.Users
+                                                                                                         //           where u.Username== username && u.Password == password
+                                                                                                         //           select u).FirstOrDefault();;
+                                                                                                         //           return user;  // without firstordefault() you get just one but method syntax above in lamda has more power
+
+        }
+
         public IEnumerable<User> GetAll() {
             return context.Users.ToList();  //do not need to check for null will always get collection back even if empty 
         }
@@ -41,6 +58,7 @@ namespace PRSPreTestLibrary.Controllers{
             if (id != user.Id) throw new Exception("Id and User.IC must match");// can also check id >0 and all the instance data validity like name done under insert
             // update datetime? variable Updated           
             context.Entry(user).State = EntityState.Modified;  // state tells the status of the data in the context[same as if you had read it from database and updated
+  //          context.Users.Update(user);
             try {
                 context.SaveChanges();// hover over save changes will see exceptions that can occur 
             } catch (DbUpdateException ex) {

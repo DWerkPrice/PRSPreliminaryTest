@@ -16,7 +16,7 @@ namespace PRSPreTestLibrary.Models
 
         public virtual User User { get; set; }
 
-        public virtual List<Requestline> Requestlines { get; set; }
+        public virtual List<RequestLine> Requestlines { get; set; }
         
         
 

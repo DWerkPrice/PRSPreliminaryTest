@@ -135,7 +135,7 @@ namespace PRSPreTestLibrary.Migrations
                     b.ToTable("RequestLines");
                 });
 
-            modelBuilder.Entity("PRSPreTestLibrary.Models.User", b =>
+            modelBuilder.Entity("PRSPreTestLibrary.Models.Vendor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +252,7 @@ namespace PRSPreTestLibrary.Migrations
 
             modelBuilder.Entity("PRSPreTestLibrary.Models.Request", b =>
                 {
-                    b.HasOne("PRSPreTestLibrary.Models.User", "User")
+                    b.HasOne("PRSPreTestLibrary.Models.Vendor", "Vendor")
                         .WithMany("Requests")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)

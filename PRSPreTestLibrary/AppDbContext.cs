@@ -10,14 +10,14 @@ namespace PRSPreTestLibrary
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Requestline> Requestlines { get; set; }
+        public virtual DbSet<RequestLine> RequestLines { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
        
         public AppDbContext() { }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-//        public virtual DbSet<User> Products { get; set; }// use plurals of class name, this has to be somewhere inside class this is the first of the lists of tables we can access
+//        public virtual DbSet<Vendor> Products { get; set; }// use plurals of class name, this has to be somewhere inside class this is the first of the lists of tables we can access
  //       public object Products { get; internal set; }
  //       public object Users { get; internal set; }
 
@@ -83,7 +83,7 @@ namespace PRSPreTestLibrary
                 e.HasOne(x => x.User).WithMany(x => x.Requests).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Restrict);
 
                 //set the individual properties in the SQL Database for table RequestLine
-                model.Entity<Requestline>(e => {
+                model.Entity<RequestLine>(e => {
                     e.ToTable("RequestLines");
                     e.HasKey(x => x.Id);
                     e.Property(x => x.Quantity).HasDefaultValue("1");

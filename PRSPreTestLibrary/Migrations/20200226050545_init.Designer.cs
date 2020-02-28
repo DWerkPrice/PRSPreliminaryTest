@@ -21,7 +21,7 @@ namespace PRSPreTestLibrary.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PRSPreTestLibrary.Models.User", b =>
+            modelBuilder.Entity("PRSPreTestLibrary.Models.Vendor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

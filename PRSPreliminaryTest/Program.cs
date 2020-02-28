@@ -13,17 +13,18 @@ namespace PRSPreliminaryTest
             var userCtrl = new UserController();
             userCtrl.GetAll().ToList().ForEach(u => Console.WriteLine(u));
 
-            var id = 3;
+            var id = 12;
             if (userCtrl.GetByPK(id) != null) {
                 Console.WriteLine(userCtrl.GetByPK(id));
+                var user = new {userCtrl.GetByPK(id) };
             } else {
                 Console.WriteLine($"User Id={id} not found");
             }
+            
 
-
-            //           AddVendors(context);
+            //           AddUser(context);
             // Add user Data
-            var user = new User {
+  /*          var user = new User {
                 Id = 12 ,
                 Username = "BlaiseTheDog" ,
                 Password = "Lightning 451" ,
@@ -33,8 +34,9 @@ namespace PRSPreliminaryTest
                 Email = "bDogboy@mail.com" ,
                 IsAdmin = false,
                 IsReviewer= false
-            };
+            };*/
             //             userCtrl.Insert(user);
+           
             userCtrl.Update(12 , user);
 
             //                               var rowsAffected = context.SaveChanges();

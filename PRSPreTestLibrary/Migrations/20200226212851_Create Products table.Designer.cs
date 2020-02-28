@@ -59,7 +59,7 @@ namespace PRSPreTestLibrary.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("PRSPreTestLibrary.Models.User", b =>
+            modelBuilder.Entity("PRSPreTestLibrary.Models.Vendor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
