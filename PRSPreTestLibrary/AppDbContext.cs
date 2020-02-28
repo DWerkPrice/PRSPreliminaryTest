@@ -7,13 +7,19 @@ namespace PRSPreTestLibrary
     public class AppDbContext : DbContext
     {
         //   private object value;
-
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Requestline> Requestlines { get; set; }
+        public virtual DbSet<Vendor> Vendors { get; set; }
+       
         public AppDbContext() { }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public virtual DbSet<User> Users { get; set; }// use plurals of class name, this has to be somewhere inside class this is the first of the lists of tables we can access
-
+//        public virtual DbSet<User> Products { get; set; }// use plurals of class name, this has to be somewhere inside class this is the first of the lists of tables we can access
+ //       public object Products { get; internal set; }
+ //       public object Users { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder) {
             if (!builder.IsConfigured) {
@@ -35,7 +41,6 @@ namespace PRSPreTestLibrary
                 e.Property(x => x.IsReviewer).IsRequired().HasDefaultValue(false);
                 e.Property(x => x.IsAdmin).IsRequired().HasDefaultValue(false);
                 e.HasIndex(x => x.Username).IsUnique();
-                e.HasIndex(x => x.Password).IsUnique();
             });
 
 
@@ -62,6 +67,7 @@ namespace PRSPreTestLibrary
                 e.Property(x => x.Unit).HasMaxLength(30).IsRequired();
                 e.Property(x => x.PhotoPath).HasMaxLength(255);
                 e.HasOne(x => x.Vendor).WithMany(x => x.Products).HasForeignKey(x => x.VendorId).OnDelete(DeleteBehavior.Restrict);
+                e.HasIndex(x => x.PartNbr).IsUnique();
             });
 
             //sets the individual properties in the SQL Database for Table Requests

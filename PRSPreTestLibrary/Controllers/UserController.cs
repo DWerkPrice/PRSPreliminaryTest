@@ -5,17 +5,20 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using PRSPreTestLibrary.Models;
 
-namespace PRSPreTestLibrary.Controllers
-{
-   public class UserController
-    {/*
+namespace PRSPreTestLibrary.Controllers{
+
+
+
+    public class UserController {
+
         private AppDbContext context = new AppDbContext();
+
         public IEnumerable<User> GetAll() {
             return context.Users.ToList();  //do not need to check for null will always get collection back even if empty 
         }
         public User GetByPK(int id) {// have to include type here because it could be different
             if (id < 1) throw new Exception("Id must be GT zero");
-            //var user = context.Users.Find(id); //find is used to get one user by id would return null and need to be checked by if statement if null changes what we need to do
+            var user = context.Users.Find(id); //find is used to get one user by id would return null and need to be checked by if statement if null changes what we need to do
             return context.Users.Find(id);
         }
         public User Insert(User user) {//need to pass entire instance of the user}
@@ -28,7 +31,7 @@ namespace PRSPreTestLibrary.Controllers
                 context.SaveChanges();// hover over save changes will see exceptions that can occur 
             } catch (DbUpdateException ex) {
                 throw new Exception("Username must be unique" , ex);
-            } catch (Exception ex) {
+            } catch (Exception) {
                 throw;
             }
             return user;// the add will generate the id into the passed in user and return back here
@@ -43,8 +46,9 @@ namespace PRSPreTestLibrary.Controllers
             } catch (DbUpdateException ex) {
                 throw new Exception("Username must be unique" , ex);
             } catch (Exception ex) {
-                throw;
+                throw ex;
             }
+            context.SaveChanges();
             return true;
         }
         // ***** add error checking ********
@@ -59,7 +63,6 @@ namespace PRSPreTestLibrary.Controllers
                 context.Users.Remove(user);
                 context.SaveChanges();
                 return true;
-            }
-        }
-*/    }
+       }
+   }
 }
