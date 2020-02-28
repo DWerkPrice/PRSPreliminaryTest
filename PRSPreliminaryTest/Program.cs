@@ -16,7 +16,7 @@ namespace PRSPreliminaryTest
             var id = 12;
             if (userCtrl.GetByPK(id) != null) {
                 Console.WriteLine(userCtrl.GetByPK(id));
-                var user = new {userCtrl.GetByPK(id) };
+                var user = new {userCtrl.Find(id) };
             } else {
                 Console.WriteLine($"User Id={id} not found");
             }

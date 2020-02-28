@@ -16,7 +16,7 @@ namespace PRSPreTestLibrary.Models
 
         public virtual User User { get; set; }
 
-        public virtual List<Requestline> Requestlines { get; set; }
+        internal virtual List<Requestline> Requestlines { get; set; }// could use ienumerable requestlines just has to be a list returned
         
         
 

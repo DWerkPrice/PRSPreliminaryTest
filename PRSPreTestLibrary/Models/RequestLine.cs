@@ -13,5 +13,7 @@ namespace PRSPreTestLibrary.Models
 
         public virtual Request Request { get; set; }
         public virtual Product Product { get; set; }
+
+
     }
 }

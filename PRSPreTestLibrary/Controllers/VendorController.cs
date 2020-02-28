@@ -9,8 +9,6 @@ namespace PRSPreTestLibrary.Controllers
 {
    public class VendorController
     {
-
-
             private AppDbContext context = new AppDbContext();
 
             
@@ -66,8 +64,5 @@ namespace PRSPreTestLibrary.Controllers
                 context.SaveChanges();
                 return true;
             }
-        }
-    }
-
-}
+   }
 }
