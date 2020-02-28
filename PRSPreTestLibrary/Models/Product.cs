@@ -15,7 +15,7 @@ namespace PRSPreTestLibrary.Models
 
        public override string ToString() => $"{Id}/{PartNbr}/{Name}/{Price}/{Unit}/{PhotoPath}/{VendorId}"; //overrides
 
-        public virtual List<RequestLine> Requestlines { get; set; }
+        public virtual List<Requestline> Requestlines { get; set; }
 
         public virtual Vendor Vendor { get; set; } 
     }
