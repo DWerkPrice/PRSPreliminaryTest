@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PRSPreTestLibrary.Models
 {
-    public class RequestLine //set the initial parameters for Requestline table handled detailed formats assigned in AppDbContext.cs
+    public class Requestline //set the initial parameters for Requestline table handled detailed formats assigned in AppDbContext.cs
     {
         public int Id { get; set; }
         public int RequestId { get; set; }
